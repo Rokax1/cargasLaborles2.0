@@ -115,7 +115,7 @@ return [
     |
     */
 
-    'use_guarded' => true,
+    'use_guarded' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -160,4 +160,6 @@ return [
         'view' => \Blueprint\Generators\Statements\ViewGenerator::class,
     ],
 
+
+    'softdeletes'=>true,
 ];

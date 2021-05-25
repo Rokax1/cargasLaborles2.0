@@ -19,11 +19,12 @@ class CreateActivitiesTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->date('initial_date');
-            $table->date('final_date');
+            $table->timestamp('initial_date');
+            $table->timestamp('final_date');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('status_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->softDeletes();
             $table->timestamps();
         });
 

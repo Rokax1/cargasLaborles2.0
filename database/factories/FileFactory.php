@@ -7,7 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(File::class, function (Faker $faker) {
     return [
-        'path' => $faker->text,
+        'name' => $faker->name,
+        'path' => $faker->word,
         'activity_id' => factory(\App\Models\Activity::class),
     ];
 });
