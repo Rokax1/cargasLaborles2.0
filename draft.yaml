@@ -1,0 +1,30 @@
+models:
+  Activity:
+    title: string
+    description: string
+    initial_date: date
+    final_date: date
+    category_id: id
+    owner_id: id foreign:users
+    status_id: id
+    relationships:
+      belongsToMany: users
+  Category:
+    name: string
+    description: strign
+    relationships:
+      hasMany: Activity
+  Status:
+    name: string
+    description: string
+    relationships:
+      hasMany: Activity
+  File:
+    path: string
+    relationships:
+      hasMany: Activity
+  Message:
+    content: string
+    activity_id: id
+
+
