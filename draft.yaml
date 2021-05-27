@@ -1,0 +1,35 @@
+models:
+  Activity:
+    title: string
+    description: longtext
+    initial_date: timestamp
+    final_date: timestamp
+    category_id: id
+    owner_id: id foreign:user
+    status_id: id
+    softDeletes
+    relationships:
+      belongsToMany: user
+      hasMany: file,message
+  Category:
+    name: string
+    description: string
+    softDeletes
+    relationships:
+      hasMany: Activity
+  Status:
+    name: string
+    description: string
+    softDeletes
+    relationships:
+      hasMany: Activity
+  File:
+    name: string
+    path: string
+    softDeletes
+    activity_id: id
+  Message:
+    content: string
+    activity_id: id
+    user_id: id
+    softDeletes
