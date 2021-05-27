@@ -1,5 +1,6 @@
 <?php
 
+use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+JsonApi::register('v1')->routes(function($api){
+    $api->resource('activities');
+});
+JsonApi::register('v1')->routes(function($api){
+    $api->resource('categories');
+});
+JsonApi::register('v1')->routes(function($api){
+    $api->resource('users');
+});
+
+JsonApi::register('v1')->routes(function($api){
+    $api->resource('owners');
 });
